@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/prisma/prisma";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { transporter } from "@/utils/nodemailer_transporter";
 
 export async function POST(req) {
   const { name, email, password } = await req.json();
@@ -42,6 +43,29 @@ export async function POST(req) {
             },
           },
         },
+      });
+
+      const tokenLink = `http://localhost:3000/api/v1/auth/activate/${token}`;
+
+      await transporter.sendMail({
+        from: process.env.MAIL_USERNAME,
+        to: createUser.email,
+        subject: "Activate Account",
+        html: `
+        <body style="font-family: Arial, sans-serif;">
+          <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
+              <h2 style="color: #333;">Account Activation</h2>
+              <p>Hello ${createUser.name},</p>
+              <p>Thank you for signing up with our service. To activate your account, please click the link below:</p>
+              <p><a href="${tokenLink}" style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 3px;">Activate Account</a></p>
+              <p>If you have trouble clicking the link, you can copy and paste the following URL into your browser:</p>
+              <p>${tokenLink}</p>
+              <p>This activation link will expire in [ExpirationTime].</p>
+              <p>If you did not sign up for our service, please disregard this email.</p>
+              <p>Thank you,<br>
+              <strong>Money Wise</strong></p>
+          </div>
+        </body>`,
       });
 
       return NextResponse.json(
