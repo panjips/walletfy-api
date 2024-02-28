@@ -3,6 +3,6 @@ POST http://localhost:3000/api/v1/auth/register
 
 {
     "name": "Panji Pusaka",
-    "email": "panji@devscale.id",
+    "email": "gamecenter1920@gmail.com",
     "password": "123"
 }
