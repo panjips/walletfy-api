@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+model Customer{
+  id Int @id @default(autoincrement())
+  cuid String @default(cuid())
+  name String @db.VarChar(255)
+  email String @db.VarChar(255) @unique
+  password String @db.VarChar(255)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  update_at DateTime @updatedAt @db.Timestamptz(6)
+
+  account Account[]
+
+  verify_id Int? @unique
+  verify VerifyToken? @relation(fields: [verify_id], references: [id])
+}
+
+model VerifyToken{
+  id Int @id @default(autoincrement())
+  token String
+  active Boolean @default(false)
+  active_at DateTime? @db.Timestamptz(6)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+
+  customer Customer?
+}
+
+model Account{
+  id Int @id @default(autoincrement())
+  cuid String @default(cuid())
+  name String @db.VarChar(255)
+  balance Decimal
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  update_at DateTime @updatedAt @db.Timestamptz(6)
+
+  customer_id Int
+  customer Customer @relation(fields: [customer_id], references: [id])
+
+  expense Expense[]
+  income Income[]
+}
+
+model Expense{
+  id Int @id @default(autoincrement())
+  cuid String @default(cuid())
+  name String @db.VarChar(255)
+  amount Decimal
+  description String?
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  update_at DateTime @updatedAt @db.Timestamptz(6)
+
+  category Category @relation(fields: [category_id], references: [id])
+  category_id Int
+
+  account_id Int
+  account Account @relation(fields: [account_id], references: [id])
+}
+
+model Income{
+  id Int @id @default(autoincrement())
+  cuid String @default(cuid())
+  name String @db.VarChar(255)
+  amount Decimal
+  description String?
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  update_at DateTime @updatedAt @db.Timestamptz(6)
+
+  category Category @relation(fields: [category_id], references: [id])
+  category_id Int 
+
+  account_id Int
+  account Account @relation(fields: [account_id], references: [id])
+}
+
+model Category{
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  update_at DateTime @updatedAt @db.Timestamptz(6)
+
+  income Income[]
+  expense Expense[]
+}

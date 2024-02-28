@@ -1,0 +1,8 @@
+### Create Customer
+POST http://localhost:3000/api/v1/auth/register
+
+{
+    "name": "Panji Pusaka",
+    "email": "panji@devscale.id",
+    "password": "123"
+}
