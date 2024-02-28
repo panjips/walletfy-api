@@ -37,7 +37,10 @@ export async function GET(req) {
       },
     });
 
-    return NextResponse.json({ message: "Success activate account" });
+    return NextResponse.json({
+      message: "Success activate account",
+      active: isActive.verify.active,
+    });
   } catch (error) {
     return NextResponse.json({ message: error.message });
   }

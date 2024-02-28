@@ -9,3 +9,11 @@ POST http://localhost:3000/api/v1/auth/register
 
 ### Activate Customer
 GET http://localhost:3000/api/v1/auth/activate?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdWlkIjoiY2x0NWMwa3Q1MDAwMGlsdHNmdHU1MDIxeSIsIm5hbWUiOiJQYW5qaSBQdXNha2EiLCJlbWFpbCI6ImdhbWVjZW50ZXIxOTIwQGdtYWlsLmNvbSIsImlhdCI6MTcwOTA5NjY0N30.n_RgTKQffk9wgCGy0YemZFA8FswX_U-BH17zxGkZejQ
+
+### Login Customer
+POST http://localhost:3000/api/v1/auth/login
+
+{
+    "email": "gamecenter1920@gmail.com",
+    "password": "123"
+}
