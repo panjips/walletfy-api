@@ -15,7 +15,7 @@ datasource db {
 
 model Customer{
   id Int @id @default(autoincrement())
-  cuid String @default(cuid())
+  cuid String @default(cuid()) @unique
   name String @db.VarChar(255)
   email String @db.VarChar(255) @unique
   password String @db.VarChar(255)
@@ -40,7 +40,7 @@ model VerifyToken{
 
 model Account{
   id Int @id @default(autoincrement())
-  cuid String @default(cuid())
+  cuid String @default(cuid())@unique
   name String @db.VarChar(255)
   balance Decimal
   created_at DateTime @default(now()) @db.Timestamptz(6)
@@ -55,7 +55,7 @@ model Account{
 
 model Expense{
   id Int @id @default(autoincrement())
-  cuid String @default(cuid())
+  cuid String @default(cuid())@unique
   name String @db.VarChar(255)
   amount Decimal
   description String?
@@ -71,7 +71,7 @@ model Expense{
 
 model Income{
   id Int @id @default(autoincrement())
-  cuid String @default(cuid())
+  cuid String @default(cuid())@unique
   name String @db.VarChar(255)
   amount Decimal
   description String?

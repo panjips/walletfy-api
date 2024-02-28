@@ -45,7 +45,7 @@ export async function POST(req) {
         },
       });
 
-      const tokenLink = `http://localhost:3000/api/v1/auth/activate/${token}`;
+      const tokenLink = `http://localhost:3000/api/v1/auth/activate?token=${token}`;
 
       await transporter.sendMail({
         from: process.env.MAIL_USERNAME,
