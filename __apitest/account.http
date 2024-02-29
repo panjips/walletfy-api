@@ -1,0 +1,20 @@
+### Create Account
+POST http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y
+
+{
+    "name": "Weekly Spend",
+    "balance": 1000000
+}
+
+### Get Account
+GET http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y/clt7c9npj000ae6kjgm520mzk
+
+### Delete Account
+DELETE http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y/clt7c6rts0008e6kjmnbya4hn
+
+### Update Account
+PATCH http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y/clt7c9npj000ae6kjgm520mzk
+
+{
+    "balance":
+}
