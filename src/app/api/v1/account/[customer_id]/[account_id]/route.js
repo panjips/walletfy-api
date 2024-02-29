@@ -38,3 +38,36 @@ export async function GET(_, { params }) {
     });
   }
 }
+
+export async function DELETE(_, { params }) {
+  const { customer_id, account_id } = await params;
+
+  try {
+    const findAccount = await prisma.account.findFirst({
+      where: {
+        cuid: account_id,
+      },
+      include: {
+        expense: true,
+        income: true,
+      },
+    });
+
+    if (!findAccount)
+      return NextResponse.json({ message: "Account not found!" });
+
+    const deleteAccount = await prisma.account.delete({
+      where: {
+        id: findAccount.id,
+      },
+    });
+
+    return NextResponse.json({
+      message: "Success delete account!",
+    });
+  } catch (error) {
+    return NextResponse.json({
+      message: error.message,
+    });
+  }
+}
