@@ -1,0 +1,7 @@
+### Create Account
+POST http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y
+
+{
+    "name": "Daily Spend",
+    "balance": 1000000
+}
