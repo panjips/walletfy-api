@@ -21,19 +21,29 @@ export async function POST(req, { params }) {
         balance,
         customer_id: findCustomer.id,
       },
+      include: {
+        expense: true,
+        income: true,
+      },
     });
 
     const data = {
-      cuid: createAccount.cuid,
+      customer_id,
+      account_id: createAccount.cuid,
       name,
       balance,
       created_at: createAccount.created_at,
+      expense: createAccount.expense,
+      income: createAccount.income,
     };
 
-    return NextResponse.json({
-      message: "Success create new account!",
-      data,
-    });
+    return NextResponse.json(
+      {
+        message: "Success create new account!",
+        data,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     return NextResponse.json({
       message: error.message,
