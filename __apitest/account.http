@@ -1,20 +1,28 @@
+### Get all Account
+GET http://localhost:3000/api/v1/account
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdWlkIjoiY2x0NWMwa3Q1MDAwMGlsdHNmdHU1MDIxeSIsIm5hbWUiOiJQYW5qaSBQdXNha2EiLCJlbWFpbCI6ImdhbWVjZW50ZXIxOTIwQGdtYWlsLmNvbSIsImlhdCI6MTcwOTA5NjY0N30.n_RgTKQffk9wgCGy0YemZFA8FswX_U-BH17zxGkZejQ"
+
 ### Create Account
-POST http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y
+POST http://localhost:3000/api/v1/account
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdWlkIjoiY2x0NWMwa3Q1MDAwMGlsdHNmdHU1MDIxeSIsIm5hbWUiOiJQYW5qaSBQdXNha2EiLCJlbWFpbCI6ImdhbWVjZW50ZXIxOTIwQGdtYWlsLmNvbSIsImlhdCI6MTcwOTA5NjY0N30.n_RgTKQffk9wgCGy0YemZFA8FswX_U-BH17zxGkZejQ"
 
 {
-    "name": "Weekly Spend",
+    "name": "Weekly Spend Combat",
     "balance": 1000000
 }
 
-### Get Account
-GET http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y/clt7c9npj000ae6kjgm520mzk
+### Get single Account
+GET http://localhost:3000/api/v1/account/clt7c9npj000ae6kjgm520mzk
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdWlkIjoiY2x0NWMwa3Q1MDAwMGlsdHNmdHU1MDIxeSIsIm5hbWUiOiJQYW5qaSBQdXNha2EiLCJlbWFpbCI6ImdhbWVjZW50ZXIxOTIwQGdtYWlsLmNvbSIsImlhdCI6MTcwOTA5NjY0N30.n_RgTKQffk9wgCGy0YemZFA8FswX_U-BH17zxGkZejQ"
 
 ### Delete Account
-DELETE http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y/clt7c6rts0008e6kjmnbya4hn
+DELETE http://localhost:3000/api/v1/account/clt8hu23200037ijx8hdfqpai
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdWlkIjoiY2x0NWMwa3Q1MDAwMGlsdHNmdHU1MDIxeSIsIm5hbWUiOiJQYW5qaSBQdXNha2EiLCJlbWFpbCI6ImdhbWVjZW50ZXIxOTIwQGdtYWlsLmNvbSIsImlhdCI6MTcwOTA5NjY0N30.n_RgTKQffk9wgCGy0YemZFA8FswX_U-BH17zxGkZejQ"
 
 ### Update Account
-PATCH http://localhost:3000/api/v1/account/clt5c0kt50000iltsftu5021y/clt7c9npj000ae6kjgm520mzk
+PATCH http://localhost:3000/api/v1/account/clt7c9npj000ae6kjgm520mzk
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdWlkIjoiY2x0NWMwa3Q1MDAwMGlsdHNmdHU1MDIxeSIsIm5hbWUiOiJQYW5qaSBQdXNha2EiLCJlbWFpbCI6ImdhbWVjZW50ZXIxOTIwQGdtYWlsLmNvbSIsImlhdCI6MTcwOTA5NjY0N30.n_RgTKQffk9wgCGy0YemZFA8FswX_U-BH17zxGkZejQ"
 
 {
-    "balance":
+    "balance": 120000
 }
