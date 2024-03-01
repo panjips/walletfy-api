@@ -1,0 +1,24 @@
+### Create income
+POST http://localhost:3000/api/v1/income/clt7d2qhv000ee6kjz1j004dm
+
+{
+    "name":"Bayar Pesangon",
+    "amount": 400000,
+    "category": "Healthcare"
+}
+
+### Get All income
+GET http://localhost:3000/api/v1/income/clt7d2qhv000ee6kjz1j004dm
+
+### Delete income
+DELETE  http://localhost:3000/api/v1/income/clt7d2qhv000ee6kjz1j004dm/clt8l07wz0005kfq9nwpuhupn
+
+### Update income
+PATCH  http://localhost:3000/api/v1/income/clt7d2qhv000ee6kjz1j004dm/clt8l0rg50007kfq91b7e0ene
+
+{
+    "name": "Bayar Ayam"
+}
+
+### Get single income
+GET  http://localhost:3000/api/v1/income/clt7d2qhv000ee6kjz1j004dm/clt8jvqu80001kfq9494bt53r
