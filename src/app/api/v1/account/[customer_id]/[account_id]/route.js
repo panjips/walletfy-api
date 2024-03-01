@@ -4,7 +4,7 @@ import { Prisma } from "@prisma/client";
 
 export async function GET(_, { params }) {
   const { customer_id, account_id } = await params;
-
+  
   try {
     const findAccount = await prisma.account.findFirst({
       where: {

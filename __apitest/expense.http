@@ -1,0 +1,24 @@
+### Create Expense
+POST http://localhost:3000/api/v1/expense/clt7d2qhv000ee6kjz1j004dm
+
+{
+    "name":"Belanja Infus",
+    "amount": 30000,
+    "category": "Healthcare"
+}
+
+### Get All Expense
+GET http://localhost:3000/api/v1/expense/clt7d2qhv000ee6kjz1j004dm
+
+### Delete Expense
+DELETE  http://localhost:3000/api/v1/expense/clt7d2qhv000ee6kjz1j004dm/clt7hv4yy00058pr3so8oopr2
+
+### Update Expense
+PATCH  http://localhost:3000/api/v1/expense/clt7d2qhv000ee6kjz1j004dm/clt8cig500001pf23qbk3miol
+
+{
+    "name": "Beli Bawang"
+}
+
+### Get single Expense
+GET  http://localhost:3000/api/v1/expense/clt7d2qhv000ee6kjz1j004dm/clt8cig500001pf23qbk3miol

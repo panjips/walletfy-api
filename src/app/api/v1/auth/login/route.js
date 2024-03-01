@@ -33,6 +33,7 @@ export async function POST(req) {
       return NextResponse.json({
         mesage: "Success login!",
         payload,
+        token: loginUser.verify.token,
       });
 
     return NextResponse.json({ message: "Credential error!" });
