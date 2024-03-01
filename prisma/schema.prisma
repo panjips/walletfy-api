@@ -88,6 +88,7 @@ model Income{
 model Category{
   id Int @id @default(autoincrement())
   name String @db.VarChar(255)
+  is_expense Boolean @default(true)
   created_at DateTime @default(now()) @db.Timestamptz(6)
   update_at DateTime @updatedAt @db.Timestamptz(6)
 
